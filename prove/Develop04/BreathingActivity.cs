@@ -8,57 +8,36 @@ class BreathingActivity : Activity
 
     }
 
-    public void MainBreathingActivity(int timer)
+    public override void RunActivity(int timer)
     {
-        string readyMessage = "Get ready.";
-        int dots = 1;
-        int messageLength;
+        Menu menu = new Menu();
 
-        for (int i = 5; i >= 0; i--)
-        {
-            Console.Write($"{readyMessage}");
-            Thread.Sleep(1000);
-            messageLength = readyMessage.Length;
-            readyMessage = "Get ready";
-            while (messageLength > 0)
-            {
-                Console.Write("\b");
-                messageLength--;
-            }
-            for (int j = 1; j < 3; j++)
-            {
-                readyMessage += ".";
-                if (j == 3)
-                {
-                    dots = 1;
-                    readyMessage = "Get ready.";
-                    break;
-                }
-                if (j == dots)
-                {
-                    dots++;
-                    break;
-                }
+        menu.GetReady();
 
-            }
-        }
-        Console.WriteLine("\n\n");
-
-        for (int i = 0; i <= timer; i += 5)
+        for (int i = 0; i < timer; i += 4)
         {
             Console.Write("Breathe in...");
-            for (int j = 5; j > 0; j--)
-            {
-                Console.Write($"{j}");
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
-            Console.Write("\n");
+            menu.Countdown(4);
+            Console.WriteLine();
+            Console.Write("Now breathe out...");
+            menu.Countdown(5);
+            Console.WriteLine("\n");
         }
+
+        Console.WriteLine("Well Done!!!");
+        menu.Spinner(2);
+        DisplayFarewell(timer);
+        Console.Clear();
+
     }
 
     public override string DisplayActivity()
     {
         return base.DisplayActivity();
+    }
+
+    public override string DisplayFarewell(int timer)
+    {
+        return $"You have completed another {timer} seconds of the Breathing Activity";
     }
 }

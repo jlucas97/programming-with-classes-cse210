@@ -7,8 +7,18 @@ class ListingActivity : Activity
 
     }
 
+    public override void RunActivity(int timer)
+    {
+        throw new NotImplementedException();
+    }
+
     public override string DisplayActivity()
     {
         return base.DisplayActivity();
+    }
+
+    public override string DisplayFarewell(int timer)
+    {
+        throw new NotImplementedException();
     }
 }
