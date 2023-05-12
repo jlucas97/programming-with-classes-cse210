@@ -11,11 +11,21 @@ class Program
 
         while (exit != true)
         {
-            Console.WriteLine(menuOptions.DisplayMenu());
-            option = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
+            try
+            {
+                Console.WriteLine(menuOptions.DisplayMenu());
+                option = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
 
-            exit = menuOptions.ActionMenu(option);
+                exit = menuOptions.ActionMenu(option);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("You should only use numbers in the menu");
+                Console.Clear();
+            }
+
+
 
         }
 

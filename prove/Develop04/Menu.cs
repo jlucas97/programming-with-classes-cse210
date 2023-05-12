@@ -45,6 +45,8 @@ public class Menu
                 ListingActivity lActivity = new ListingActivity();
                 Console.WriteLine(lActivity.DisplayActivity());
                 timer = int.Parse(Console.ReadLine());
+                Console.Clear();
+                lActivity.RunActivity(timer);
                 break;
             case 4:
                 Console.WriteLine("See you soon!");

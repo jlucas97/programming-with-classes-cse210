@@ -62,7 +62,7 @@ class ReflectingActivity : Activity
         else
         {
             Random rd = new Random();
-            int index = rd.Next(0, _questionList.Count);
+            int index = rd.Next(0, _questionList.Count - 1);
 
             phrase = _questionList[index];
             _questionList.RemoveAt(index);
@@ -90,35 +90,34 @@ class ReflectingActivity : Activity
 
         DateTime endTime = DateTime.Now.AddSeconds(timer);
         QuestionsList();
-        string aQuestion;
-        bool hitEnter = false;
+        string aQuestion = Questions();
+        bool noMoreWords = false;
 
-
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < endTime && noMoreWords == false)
         {
-
-            Console.Write(aQuestion = Questions() + "\n");
-            hitEnter = false;
-
-            while (!hitEnter && DateTime.Now < endTime)
+            if (aQuestion.Equals("There are no more pondering phrases, restart the program"))
             {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                    hitEnter = keyInfo.Key == ConsoleKey.Enter;
-                    break;
-                }
-                else
-                {
-                    menu.Spinner(1);
-                }
-
+                noMoreWords = true;
+                aQuestion = "or there are no more questions";
+                break;
             }
+
+            Console.Write("-" + aQuestion + "\n");
+            menu.Spinner(5);
+            aQuestion = Questions();
         }
 
         Console.WriteLine("\nWell done! \n");
-        Console.WriteLine(DisplayFarewell(timer));
-        menu.Countdown(6);
+        if (aQuestion.Equals("or there are no more questions"))
+        {
+            Console.WriteLine("Thanks for using the app, there are no more questions");
+        }
+        else
+        {
+            Console.WriteLine(DisplayFarewell(timer));
+        }
+        Console.Write("\nLoading main menu...");
+        menu.Countdown(5);
         Console.Clear();
     }
 

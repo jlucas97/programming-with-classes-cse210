@@ -25,8 +25,8 @@ class BreathingActivity : Activity
         }
 
         Console.WriteLine("Well Done!!!");
-        menu.Spinner(2);
-        DisplayFarewell(timer);
+        Console.Write(DisplayFarewell(timer) + "\nLoading main menu");
+        menu.Spinner(3);
         Console.Clear();
 
     }
