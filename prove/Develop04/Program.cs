@@ -21,7 +21,7 @@ class Program
             }
             catch (Exception ex)
             {
-                Console.WriteLine("You should only use numbers in the menu");
+                Console.WriteLine("You should only use numbers in the menu" + "\n" + ex);
                 Console.Clear();
             }
 
