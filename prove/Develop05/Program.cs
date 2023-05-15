@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        // I added the BadHabits class which is a goal that subtract points when made
+        // in order to exceed the core requirements.
+
         Menu menu = new Menu();
         bool exit = false;
 

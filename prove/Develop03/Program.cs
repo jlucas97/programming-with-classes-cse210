@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        //This program contains a JSON file that is being read with the Json class
+        //in order to exceed the requirements
+
         Json _jReader = Json.GetJsonInstance();
         _jReader.ReadJsonFile();
 

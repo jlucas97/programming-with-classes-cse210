@@ -2,8 +2,12 @@ using System;
 
 class Program
 {
+
     static void Main(string[] args)
     {
+
+        //To exceed with the core requirements, I added the GetReady() animation and
+        //I also used some polimorphism with the inheritance
 
         int option;
         Menu menuOptions = new Menu();

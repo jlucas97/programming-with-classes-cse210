@@ -1,12 +1,17 @@
 
-class GamePoints
+class Game
 {
 
     private int _cumulatedPoints;
 
-    public GamePoints()
+    public Game()
     {
         CumulatedPoints = 0;
+    }
+
+    public void RecordEvents(int eventPoints)
+    {
+        CumulatedPoints += eventPoints;
     }
 
     public int CumulatedPoints { get => _cumulatedPoints; set => _cumulatedPoints = value; }
