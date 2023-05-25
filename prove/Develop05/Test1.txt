@@ -1,3 +1,5 @@
-Points: 17
+Points: 22
 Simple, t1, test1, 1, True
 Checklist, t3, test3, 3, True, 2, 10, 2
+Eternal, Read scriptures, Read scriptures daily, 10, False
+BadHabits, Check social networks, Spend more than 1 hour daily on social networks, 5, False, 5, 2, 1
