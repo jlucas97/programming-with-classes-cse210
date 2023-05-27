@@ -7,16 +7,19 @@ class Vehicle
     protected DateTime _checkOut;
     protected double _pricePerHour;
 
-    public Vehicle(string plate, string type, DateTime checkIn)
+    public Vehicle()
     {
-        Plate = plate;
-        Type = type;
-        CheckIn = checkIn;
+
     }
 
     public virtual double CalculateTotal()
     {
         return 0;
+    }
+
+    public override string ToString()
+    {
+        return $"Type:{Type} - Plate:{Plate} Check In:{CheckIn}";
     }
 
     public string Plate { get => _plate; set => _plate = value; }

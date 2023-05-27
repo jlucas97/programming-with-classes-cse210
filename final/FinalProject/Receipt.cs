@@ -1,9 +1,9 @@
 
 class Receipt
 {
-    public Receipt(long iDReceipt, string plate, DateTime receiptDate, double totalAmount, DateTime checkIn, DateTime checkOut)
+
+    public Receipt(string plate, DateTime receiptDate, double totalAmount, DateTime checkIn, DateTime checkOut)
     {
-        IDReceipt = iDReceipt;
         Plate = plate;
         ReceiptDate = receiptDate;
         TotalAmount = totalAmount;
@@ -11,7 +11,15 @@ class Receipt
         CheckOut = checkOut;
     }
 
-    public long IDReceipt { get; set; }
+    public override string ToString()
+    {
+        return $"Plate: {Plate}\n" +
+               $"Receipt Date: {ReceiptDate.ToShortDateString()}\n" +
+               $"Total Amount: {TotalAmount}\n" +
+               $"Check In: {CheckIn}\n" +
+               $"Check Out: {CheckOut}\n";
+    }
+
     public string Plate { get; set; }
     public DateTime ReceiptDate { get; set; }
     public double TotalAmount { get; set; }
